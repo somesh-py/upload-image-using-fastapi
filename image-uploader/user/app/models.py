@@ -13,7 +13,7 @@ class Category(Model):
 
 
 class Subcategory(Model):
-    Category=fields.ForeignKeyRelation(Category)
+    Category=fields.ForeignKeyRelation("models.Category",related_name="subcategory",on_delete="CASCADE")
     name = fields.CharField(200, unique=True)
     slug = fields.CharField(200)
     category_image = fields.TextField()
